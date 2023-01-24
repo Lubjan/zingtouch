@@ -6,12 +6,14 @@ module.exports = (env, argv) => {
   const plugins = [];
   const filename = (argv.mode === 'production') ? 'zingtouch.min.js' : 'zingtouch.js';
   const config = {
+    experiments: {
+    outputModule: true,
+    },
     mode: argv.mode,
     entry: './src/core/main.js',
     output: {
-      filename: filename,
-      library: 'ZingTouch',
-      libraryTarget: 'umd',
+      filename,
+      libraryTarget: 'module',
     },
     devtool: 'source-map',
     module: {
@@ -28,7 +30,7 @@ module.exports = (env, argv) => {
         }
       ]
     },
-    plugins: plugins,
+    plugins,
   };
 
   config.output.filename = filename;

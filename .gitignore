@@ -7,4 +7,5 @@ playground/
 docs/
 yarn-error.log
 examples/
-dist/index.html
+dist/
+*.map
